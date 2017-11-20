@@ -24,10 +24,6 @@ import javax.swing.table.TableRowSorter;
 import net.proteanit.sql.DbUtils;
 
 
-/**
- *
- * @author Mudabir Ahmad
- */
 public class PatientRegistration extends javax.swing.JFrame {
     Connection conn=null;
     PreparedStatement pst=null;
