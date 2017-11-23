@@ -257,16 +257,18 @@
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="docbox" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="delete_row" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="delete_row" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
                               <Component id="addMed_btn" min="-2" pref="20" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="docbox" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -329,7 +331,7 @@
                       <Group type="102" attributes="0">
                           <Component id="filtertext" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jScrollPane1" pref="134" max="32767" attributes="0"/>
+                          <Component id="jScrollPane1" pref="132" max="32767" attributes="0"/>
                       </Group>
                       <Component id="jScrollPane2" alignment="1" pref="0" max="32767" attributes="0"/>
                   </Group>
@@ -402,9 +404,9 @@
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                           <Table columnCount="4" rowCount="0">
                             <Column editable="true" title="Sr/no" type="java.lang.Integer"/>
-                            <Column editable="true" title="Patient_id" type="java.lang.Object"/>
-                            <Column editable="true" title="Medicine No" type="java.lang.Object"/>
-                            <Column editable="true" title="Medicine" type="java.lang.Object"/>
+                            <Column editable="true" title="Patient_id" type="java.lang.Integer"/>
+                            <Column editable="true" title="Medicine No" type="java.lang.Integer"/>
+                            <Column editable="true" title="Medicine" type="java.lang.String"/>
                           </Table>
                         </Property>
                       </Properties>

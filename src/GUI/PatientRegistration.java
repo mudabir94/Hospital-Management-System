@@ -375,7 +375,7 @@ public class PatientRegistration extends javax.swing.JFrame {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -401,7 +401,7 @@ public class PatientRegistration extends javax.swing.JFrame {
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addComponent(filtertext, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE))
             .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
 
@@ -454,15 +454,16 @@ public class PatientRegistration extends javax.swing.JFrame {
                         .addGap(17, 17, 17)
                         .addComponent(jLabel6)
                         .addGap(0, 0, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(docbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel7)
-                        .addComponent(delete_row))
+                    .addComponent(delete_row)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(3, 3, 3)
-                        .addComponent(addMed_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(addMed_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(docbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7))))
                 .addGap(18, 18, 18)
                 .addComponent(submitbtn_outpatient)
                 .addContainerGap())
@@ -866,8 +867,10 @@ public class PatientRegistration extends javax.swing.JFrame {
         cell=p_celltext.getText();
         
         conn=mysqlconnection.ConnectDb();
+        
         String sql= "insert into patient_info ( `name`, `gender`, `age`, `address`, `cell`, `date_created`, `date_modified`) VALUES(?,?,?,?,?,?,?)";
         String sql1="insert into patient_history (p_id, p_status, doc_id, date_created, date_modified) VALUES (?,?,?,?,?)";
+        String sql2="insert into prescribtion (p_id,m_id, date_created, date_modified) ValUES(?,?,?,?)";
         try
         {
            
@@ -922,6 +925,33 @@ public class PatientRegistration extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "sss");
         System.out.println(ex.getMessage());
         }
+        ///////////////////////////////////////////////// prescribtion table entry ///////////////////////
+        try{
+              
+           java.sql.Timestamp date = new java.sql.Timestamp(new java.util.Date().getTime());   
+           
+           pst=conn.prepareStatement(sql2);
+         DefaultTableModel model = (DefaultTableModel) pres_Table.getModel();
+         
+     for(int i=0;i<model.getRowCount();i++){
+         
+                    pst.setInt(1,num+1);
+                    pst.setInt(2,parseInt(model.getValueAt(i,2 ).toString()));
+                     
+                    pst.setTimestamp(3, date);
+                    pst.setTimestamp(4, date);
+                    pst.execute();
+                    
+        }
+         
+         
+          
+        }
+        catch(Exception ex){
+        JOptionPane.showMessageDialog(null, "error");
+        System.out.println(ex.getMessage());
+        }
+        
     }//GEN-LAST:event_submitbtn_outpatientActionPerformed
 
     private void docboxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_docboxItemStateChanged
