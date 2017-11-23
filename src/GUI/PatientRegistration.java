@@ -21,6 +21,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import java.util.*;
 import javax.swing.JFileChooser;
+import javax.swing.JTable;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
@@ -211,7 +212,19 @@ public class PatientRegistration extends javax.swing.JFrame {
         System.out.println(ex.getMessage());
         }
     }
+   public void empty_pres_Table(){
+          DefaultTableModel model = (DefaultTableModel) pres_Table.getModel();
+         System.out.println("row count"+model.getRowCount());
+    while(model.getRowCount()>0){
+         for(int i=0;i<model.getRowCount();i++){
+         
+                    model.removeRow(i);
+                
+        }
+        System.out.println("empty pres table");
+     }
    
+   }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -942,7 +955,10 @@ public class PatientRegistration extends javax.swing.JFrame {
                     pst.setTimestamp(4, date);
                     pst.execute();
                     
+                
         }
+    
+        empty_pres_Table();
          
          
           
