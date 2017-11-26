@@ -148,12 +148,12 @@ public class PatientRegistration extends javax.swing.JFrame {
         }
         
     }
- private void emptycombo_roombox(){
-     roombox.removeAllItems();
- }
- private void emptycombo_bedbox_ward(){
-       bedbox.removeAllItems();
+    private void emptycombo_roombox(){
+        roombox.removeAllItems();
     }
+    private void emptycombo_bedbox_ward(){
+          bedbox.removeAllItems();
+       }
     private void inc_p_id()
     {
          conn=mysqlconnection.ConnectDb();
@@ -178,15 +178,14 @@ public class PatientRegistration extends javax.swing.JFrame {
         System.out.println(ex.getMessage());
         }
     }
-  private void settextField_Null() {
+    private void settextField_Null() {
              p_nametext.setText(null);
              p_addresstext.setText(null);
              p_celltext.setText(null);
              p_agetext.setText(null);
              in_cnic_textfield.setText(null);
     }
-  
-  private void get_docid(String name)
+    private void get_docid(String name)
     {
        Set set = hmap.entrySet();
       Iterator iterator = set.iterator();
@@ -200,7 +199,7 @@ public class PatientRegistration extends javax.swing.JFrame {
       }
       System.out.println("Doc id"+doc_id);
     }
-  private void updateTable_med(){
+    private void updateTable_med(){
         conn=mysqlconnection.ConnectDb();
         String sql= "select * from medicine  ";
         try
@@ -214,7 +213,7 @@ public class PatientRegistration extends javax.swing.JFrame {
         System.out.println(ex.getMessage());
         }
     }
-   public void empty_pres_Table(){
+    public void empty_pres_Table(){
           DefaultTableModel model = (DefaultTableModel) pres_Table.getModel();
          System.out.println("row count"+model.getRowCount());
     while(model.getRowCount()>0){
