@@ -33,7 +33,8 @@ import net.proteanit.sql.DbUtils;
  * @author Mudabir Ahmad
  */
 public class PatientRegistration extends javax.swing.JFrame {
-   TableModel tm;
+  ///////////////////////////////////
+    TableModel tm;
     ////////////
     Connection conn=null;
     PreparedStatement pst=null;
